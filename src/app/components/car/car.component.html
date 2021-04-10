@@ -1,0 +1,32 @@
+<<div *ngIf="dataLoaded == false" class="d-flex justify-content-center">
+  <div class="spinner-grow text" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label"> Araç Ara</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Example Bmw">
+</div>
+
+<table *ngIf="dataLoaded != false" class="table">
+  <thead>
+    <tr>
+      <th>Car Id</th>
+      <th>Brand Name</th>
+      <th>Color Name</th>
+      <th>Model Year</th>
+      <th>Dialy Price</th>
+
+    </tr>
+  </thead>
+
+  <tr *ngFor="let car of cardetails" >
+    <td>{{ car.carID }}</td>
+    <td>{{ car.brandName }}</td>
+    <td>{{ car.colorName }}</td>
+    <td>{{ car.modelYear }}</td>
+    <td>{{ car.dailyPrice }}</td>
+    <button routerLink = "/cars/cardetail/{{car.carID}}">Go Preview</button>
+  </tr>
+</table> 
+
